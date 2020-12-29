@@ -16,13 +16,13 @@ let pokemonList = [
       }
   ];
 
-  //The "for" code below, allows for my array of pokemon to be looped through
-  for( let i=0; i < pokemonList.length; i++) {
-
-    //The if/else statement below sets the result to be displayed on the index page
-    if (pokemonList[i].height > 2) {
-    document.write("<p>" + pokemonList[i].name + " " + "(height: " +pokemonList[i].height + ") - Wow, that's big!</p>")
+//forEach function used to loop through pokemon array
+pokemonList.forEach(function(property) {
+  //The if/else statement below sets the result to be displayed on the index page
+  if (property.height > 2) {
+    document.write("<p>" + property.name + " (height: " + property.height +
+  ") - Wow, that's big!</p>");
   }else {
-    document.write("<p>" + pokemonList[i].name + " " + "(height: " +pokemonList[i].height + ")</p>")
-    }
-  };
+  document.write("<p>" + property.name + " (height: " + property.height +
+  ")</p>")}
+});
