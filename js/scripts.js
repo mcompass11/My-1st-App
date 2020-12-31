@@ -1,28 +1,40 @@
-let pokemonList = [
+let pokemonRepository = (function () {
+  let pokemonList = [
     { 
-      name:"Charizard", 
+      name: "Charizard", 
       height: 1.7, 
       types: ["fire", "flying"]
       },
     { 
-      name:"Dragonite",
+      name: "Dragonite",
       height: 2.2,
       types: ["dragon", "flying"]
       },
     {
-      name:"Mewtwo",
+      name: "Mewtwo",
       height: 2,
       types: "psychic"
       }
   ];
 
-//forEach function used to loop through pokemon array
-pokemonList.forEach(function(property) {
-  //The if/else statement below sets the result to be displayed on the index page
-  if (property.height > 2) {
-    document.write("<p>" + property.name + " (height: " + property.height +
-  ") - Wow, that's big!</p>");
+  function getAll() {
+    return pokemonList;
+  }
+
+  function add(item) {
+    pokemonList.push(item);
+  }
+  return {
+    getAll: getAll,
+    add: add
+  };
+})();
+
+console.log(pokemonRepository.getAll());
+//
+pokemonRepository.getAll.forEach(); {
+  if (pokemon.height > 2) {
+    document.write("<p>" + name + " (height: " + height + ") - Wow, that's big!</p>");
   }else {
-  document.write("<p>" + property.name + " (height: " + property.height +
-  ")</p>")}
-});
+    document.write("<p>" + name + " (height: " + height + ")</p>")}
+  };
