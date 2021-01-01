@@ -32,9 +32,9 @@ let pokemonRepository = (function () {
 
 console.log(pokemonRepository.getAll());
 //
-pokemonRepository.getAll.forEach(); {
+pokemonRepository.getAll().forEach(function (pokemon) {
   if (pokemon.height > 2) {
-    document.write("<p>" + name + " (height: " + height + ") - Wow, that's big!</p>");
+    document.write("<p>" + pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!</p>");
   }else {
-    document.write("<p>" + name + " (height: " + height + ")</p>")}
-  };
+    document.write("<p>" + pokemon.name + " (height: " + pokemon.height + ")</p>")}
+  });
