@@ -26,12 +26,6 @@ let pokemonRepository = (function () {
     })
     }
 
-  function showDetails (pokemon) {
-    loadDetails(pokemon).then(function () {
-      console.log(pokemon);
-    });
-  }
-
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -43,8 +37,6 @@ let pokemonRepository = (function () {
         };
         //loaded pokemon api
         add(pokemon);
-        console.log(pokemon);
-        //adds the pokemon from the results to pokemonList
       });
     }).catch(function (e) {
       console.error(e);
@@ -65,15 +57,23 @@ let pokemonRepository = (function () {
     });
   }
 
+  function showDetails (pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+  }
+
   return {
-    add: add,
-    loadList: loadList,
     getAll: getAll,
-    addListItem: addListItem
+    add: add,
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();
 
-console.log(pokemonRepository.getAll());
+//console.log(pokemonRepository.getAll());
 
 pokemonRepository.loadList().then(function() {
   //data is now loaded up
