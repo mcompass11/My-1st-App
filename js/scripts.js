@@ -13,13 +13,13 @@ let pokemonRepository = (function () {
 
   function addListItem (pokemon) {
     let pokemonList = document.querySelector(".pokemon-List");
-    let listpokemon = document.createElement("li");
+    let catalog = document.createElement("li");
     //created list of pokemon to be displayed
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("button_primary");
-    listpokemon.appendChild(button);
-    pokemonList.appendChild(listpokemon);
+    catalog.appendChild(button);
+    pokemonList.appendChild(catalog);
     button.addEventListener("click", function (event) {
       showDetails(pokemon);
       //Create a button for each pokemon, once clicked displays pokemon info in console
@@ -35,8 +35,9 @@ let pokemonRepository = (function () {
           name: item.name,
           detailsUrl: item.url
         };
-        //loaded pokemon api
+        //loaded up pokemon from external source
         add(pokemon);
+        //adds the pokemon from the results to pokemonList
       });
     }).catch(function (e) {
       console.error(e);
@@ -61,6 +62,7 @@ let pokemonRepository = (function () {
     loadDetails(pokemon).then(function () {
       console.log(pokemon);
     });
+    //loads pokemon details from api
   }
 
   return {
@@ -69,11 +71,9 @@ let pokemonRepository = (function () {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
+    showDetails: showDetails,
   };
 })();
-
-//console.log(pokemonRepository.getAll());
 
 pokemonRepository.loadList().then(function() {
   //data is now loaded up
