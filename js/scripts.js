@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function getAll() {
     return pokemonList;
@@ -20,7 +20,7 @@ let pokemonRepository = (function () {
     button.classList.add("button_primary");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
-    button.addEventListener('click', function (event) {
+    button.addEventListener("click", function (event) {
       showDetails(pokemon);
       //Create a button for each pokemon, once clicked displays pokemon info in console
     })
@@ -33,7 +33,7 @@ let pokemonRepository = (function () {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          detailsURL: item.url
+          detailsUrl: item.url
         };
         //loaded pokemon api
         add(pokemon);
