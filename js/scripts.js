@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function getAll() {
     return pokemonList;
@@ -20,17 +20,11 @@ let pokemonRepository = (function () {
     button.classList.add("button_primary");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
-    button.addEventListener('click', function (event) {
+    button.addEventListener("click", function (event) {
       showDetails(pokemon);
       //Create a button for each pokemon, once clicked displays pokemon info in console
     })
     }
-
-  function showDetails (pokemon) {
-    loadDetails(pokemon).then(function () {
-      console.log(pokemon);
-    });
-  }
 
   function loadList() {
     return fetch(apiUrl).then(function (response) {
@@ -39,11 +33,10 @@ let pokemonRepository = (function () {
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
-          detailsURL: item.url
+          detailsUrl: item.url
         };
         //loaded pokemon api
         add(pokemon);
-        console.log(pokemon);
         //adds the pokemon from the results to pokemonList
       });
     }).catch(function (e) {
@@ -65,15 +58,21 @@ let pokemonRepository = (function () {
     });
   }
 
+  function showDetails (pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
+    });
+  }
+
   return {
-    add: add,
-    loadList: loadList,
     getAll: getAll,
-    addListItem: addListItem
+    add: add,
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails,
   };
 })();
-
-console.log(pokemonRepository.getAll());
 
 pokemonRepository.loadList().then(function() {
   //data is now loaded up
