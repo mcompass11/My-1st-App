@@ -59,69 +59,70 @@ let pokemonRepository = (function () {
       console.error(e);
     });
   }
+  function showModal(title, image, text) {
+    let modalContainer = document.querySelector("#modal-container");
+    modalContainer.classList.add("is-visible");
+
+  function hideModal() {
+    let modalContainer = document.querySelector("#modal-container");
+    modalContainer.classList.remove("is-visible");
+  }
+
+  modalContainer.innerHTML = ""; // clears existing modal content
+
+  let modal = document.createElement("div");
+  modal.classList.add("modal");
+
+  let closeButtonElement = document.createElement("button");
+  closeButtonElement.classList.add("modal-close");
+  closeButtonElement.innerText = "Close";
+  closeButtonElement.addEventListener("click", hideModal);
+
+
+  let titleElement = document.createElement("h1");
+  titleElement.innerText = title;
+
+  let contentElement = document.createElement("p");
+  contentElement.innerText = text;
+
+  //let pokeContainer = document.querySelector("image-container");
+
+  let imageElement = document.createElement("img");
+  imageElement.src = image;
+
+
+
+  modal.appendChild(closeButtonElement);
+  modal.appendChild(titleElement);
+  modal.appendChild(contentElement);
+  modal.appendChild(imageElement);
+  modalContainer.appendChild(modal);
+  
+  modalContainer.classList.add("is-visible");
+
+  window.addEventListener("keydown", (e) => {
+    let modalContainer = document.querySelector("#modal-container");
+    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+      hideModal();
+    }
+  });//closes modal via escape key
+
+  modalContainer.addEventListener("click", (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  }); //closes modal when clicking overlay
+  }
+
+  // document.querySelector("#modal").addEventListener("click", () => {
+  //   showModal("pokemon.name", "pokemon.image","'Height: ' + pokemon.height"); //displays pokemon details in modal
+  // }); THIS BLOCK OF CODE WAS UNNECESSARY
 
   function showDetails (pokemon) {
     loadDetails(pokemon).then(function () {
       console.log(pokemon);
-      function showModal(title, image, text) {
-        let modalContainer = document.querySelector("#modal-container");
-        modalContainer.classList.add("is-visible");
-
-      function hideModal() {
-        let modalContainer = document.querySelector("#modal-container");
-        modalContainer.classList.remove("is-visible");
-      }
-
-      modalContainer.innerHTML = ""; // clears existing modal content
-
-      let modal = document.createElement("div");
-      modal.classList.add("modal");
-
-      let closeButtonElement = document.createElement("button");
-      closeButtonElement.classList.add("modal-close");
-      closeButtonElement.innerText = "Close";
-      closeButtonElement.addEventListener("click", hideModal);
-
-
-      let titleElement = document.createElement("h1");
-      titleElement.innerText = title;
-
-      let contentElement = document.createElement("p");
-      contentElement.innerText = text;
-
-      let pokeContainer = document.querySelector("image-container");
-
-      let imageElement = document.createElement("img");
-      imageElement.src = image;
-
-
-
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
-      modal.appendChild(imageElement);
-      modalContainer.appendChild(modal);
-      
-      modalContainer.classList.add("is-visible");
-
-      window.addEventListener("keydown", (e) => {
-        let modalContainer = document.querySelector("#modal-container");
-        if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
-          hideModal();
-        }
-      });//closes modal via escape key
-
-      modalContainer.addEventListener("click", (e) => {
-        let target = e.target;
-        if (target === modalContainer) {
-          hideModal();
-        }
-      }); //closes modal when clicking overlay
-      }
-
-      document.querySelector("#modal").addEventListener("click", () => {
-        showModal(pokemon.name, pokemon.image,"Height: " + pokemon.height); //displays pokemon details in modal
-      });
+      showModal(pokemon);
     });
   }
 
