@@ -14,10 +14,11 @@ let pokemonRepository = (function () {
   function addListItem (pokemon) {
     let pokemonList = document.querySelector(".pokemon-List");
     let catalog = document.createElement("li");
+    catalog.classList.add("group-list-item");//Attempt at adding bootstrap list utility
     //created list of pokemon to be displayed
-    let button = document.createElement("button");
+    let button = document.createElement("btn");
     button.innerText = pokemon.name;
-    button.classList.add("button_primary");
+    button.classList.add("btn-primary" , "btn-lg");
     catalog.appendChild(button);
     pokemonList.appendChild(catalog);
     button.addEventListener("click", function (event) {
