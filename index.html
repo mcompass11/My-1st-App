@@ -7,16 +7,43 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
         <!-- Attempt at adding bootstrap -->
         <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <stylE>
+          li {display: inline}
+        </stylE>
     </head>
     <body>
         <h1>Gotta Catch 'Em All</h1>
-            <!-- <ul id="modal" class="pokemon-List list-unstyled"></ul>
-            <div id="modal-container"> this is the modal
-                <div id = "image-container"></div>
-            </div> -->
-
-            <button type="button" class="btn btn-primary pokemon-List list-unstyled" data-toggle="modal" data-target="#exampleModal">
-            </button>
+          <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Kanto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Johto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Hoenn</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+            
+          <div class="pokemon-List list-unstyled">
+              <ul class="list-group"></ul>
+            
+              <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              </button> -->
+          </div>
 
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,7 +60,6 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
