@@ -13,6 +13,7 @@ let pokemonRepository = (function () {
   function addListItem (pokemon) {
     let pokemonList = document.querySelector(".pokemon-List");
     let catalog = document.createElement("li");
+    
 
     
     //created list of pokemon to be displayed
@@ -20,6 +21,7 @@ let pokemonRepository = (function () {
     button.innerText = pokemon.name;
     button.classList.add("button_primary");
     catalog.appendChild(button);
+    catalog.classList.add(".list-group-item");
     pokemonList.appendChild(catalog);
     button.addEventListener("click", function (event) {
       showDetails(pokemon);
@@ -69,9 +71,9 @@ let pokemonRepository = (function () {
     modalTitle.empty();
     modalBody.empty();
 
-    let nameElement = $("<h1>" + name + "</h1>");
+    let nameElement = $("<h2>" + name + "</h2>");
 
-    let imageElementFront  = $("<img class='modal-img' style='width:50%'>");
+    let imageElementFront  = $("<img class='modal-img' style='width:50%' role='presentation'>");
     imageElementFront.attr("src", image);
 
     let heightElement = $("<p>" + "height: " + height + "</p>");
