@@ -14,19 +14,19 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector(".pokemon-List");
     let catalog = document.createElement("li");
     
-
     
     //created list of pokemon to be displayed
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("button_primary");
+    button.addEventListener("click", function (event) {
+      showDetails(pokemon);
+      $("#exampleModal").modal("toggle");
+      //Create a button for each pokemon, once clicked displays pokemon info in console
+     });
     catalog.appendChild(button);
     catalog.classList.add(".list-group-item");
     pokemonList.appendChild(catalog);
-    button.addEventListener("click", function (event) {
-      showDetails(pokemon);
-      //Create a button for each pokemon, once clicked displays pokemon info in console
-    });
     }
 
   function loadList() {
@@ -61,12 +61,10 @@ let pokemonRepository = (function () {
       console.error(e);
     });
   }
-  
 
   function showModal(name, image, height) {
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
-
 
     modalTitle.empty();
     modalBody.empty();
@@ -96,8 +94,8 @@ let pokemonRepository = (function () {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails,
-    showModal: showModal
+    showModal: showModal,
+    showDetails: showDetails
     
   };
 })();

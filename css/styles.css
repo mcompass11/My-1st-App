@@ -59,7 +59,7 @@ h1 {
     text-align: center;
 }
 
-.modal {
+#modal {
     margin: auto;
     display: inline-block;
     box-sizing: border-box;
@@ -92,7 +92,7 @@ h1 {
     color: darkgray;
 }
 
-#modal-container.is-visible {
+#modal.is-visible {
     position: fixed;
     padding: 20px;
     box-sizing:border-box;
