@@ -67,3 +67,8 @@ h1 {
 h2 {
     text-align: center;
 }
+
+a.nav-item {
+    color: red;
+
+}

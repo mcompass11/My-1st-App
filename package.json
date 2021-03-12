@@ -1,0 +1,20 @@
+{
+  "name": "simple-js-app",
+  "description": "",
+  "version": "1.0.0",
+  "main": "tota11y.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcompass11/My-1st-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcompass11/My-1st-App/issues"
+  },
+  "homepage": "https://github.com/mcompass11/My-1st-App#readme"
+}
